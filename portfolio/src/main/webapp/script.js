@@ -26,3 +26,12 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+async function showFavoriteQuotes() {
+  const responseFromServer = await fetch('/Quotes');
+  const textFromResponse = await responseFromServer.text();
+
+  const quotes =
+      ['I Never Look Back, Darling. It Distracts From The Now! -Edna ,The Incredibles', 'The future belongs to those who prepare for it today. -Malcolm X', 'All that Glitter aint gold And all that shines bright aint a diamond And all the wrinkles isnt old And as far as you see aint the horizon -Brent Faiyaz'];
+  const quotes = quotes[Math.floor(Math.random() * quotes.length)];
+  quotesContainer.innerText=quotes;
+}
